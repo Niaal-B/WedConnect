@@ -5,9 +5,10 @@ from rest_framework_simplejwt.views import TokenRefreshView
 urlpatterns = [
     path("admin/", admin.site.urls),
 
-    # Accounts app (login, logout, me)
-    path("api/accounts/", include("accounts.urls")),
+    # API v1
+    path("api/v1/accounts/", include("accounts.urls")),
+    path("api/v1/vendors/", include("vendors.urls")),
 
-    # JWT token refresh
-    path("api/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
+    # JWT
+    path("api/v1/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
 ]
