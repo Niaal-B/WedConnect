@@ -42,7 +42,7 @@ export function LandingPage() {
               size="lg"
               className="h-14 w-full rounded-2xl bg-slate-800 py-6 text-base font-semibold shadow-md shadow-slate-900/20 transition-shadow hover:bg-slate-900 hover:shadow-lg hover:shadow-slate-900/25 active:scale-[0.98]"
             >
-              <Link to="/register" className="inline-flex items-center justify-center gap-2.5">
+              <Link to="/vendor/login" className="inline-flex items-center justify-center gap-2.5">
                 Get Started
                 <ArrowRight className="h-5 w-5" strokeWidth={2.5} />
               </Link>
@@ -50,7 +50,7 @@ export function LandingPage() {
             <p className="text-center text-[0.9375rem] text-stone-600">
               Already have an account?{" "}
               <Link
-                to="/login"
+                to="/vendor/login"
                 className="font-semibold text-blue-600 underline underline-offset-2 decoration-2 hover:text-blue-700"
               >
                 Sign In
@@ -114,7 +114,7 @@ export function LandingPage() {
           <p className="text-sm text-stone-600">
             Already have an account?{" "}
             <Link
-              to="/login"
+              to="/vendor/login"
               className="font-medium text-blue-600 transition-colors hover:text-blue-700 hover:underline"
             >
               Sign In
@@ -138,7 +138,7 @@ export function LandingPage() {
                 size="lg"
                 className="h-12 rounded-lg bg-slate-800 px-8 text-base font-semibold shadow-md transition-shadow hover:bg-slate-900 hover:shadow-lg"
               >
-                <Link to="/register" className="inline-flex items-center gap-2">
+                <Link to="/vendor/login" className="inline-flex items-center gap-2">
                   Get Started
                   <ArrowRight className="h-5 w-5" />
                 </Link>

@@ -59,3 +59,44 @@ export interface CreateVendorPayload {
   category?: number;
   districts?: number[];
 }
+
+export interface BookingSlot {
+  start_time: string;
+  end_time: string;
+}
+
+export interface BookingDate {
+  event_date: string;
+  slots: BookingSlot[];
+}
+
+export interface Booking {
+  id: number;
+  customer_name: string;
+  district: number | null;
+  address: string;
+  phone_number: string;
+  alternative_phone_number?: string;
+  map_url?: string;
+  total_amount: string;
+  advance_amount: string;
+  created_at: string;
+  is_deleted: boolean;
+  total_paid: number;
+  balance_amount: number;
+  payment_status: "NOT_PAID" | "PARTIAL" | "PAID";
+  event_status: "TODAY" | "UPCOMING" | "PAST" | "UNKNOWN";
+  dates: BookingDate[];
+}
+
+export interface CreateBookingPayload {
+  customer_name: string;
+  district?: number;
+  address: string;
+  phone_number: string;
+  alternative_phone_number?: string;
+  map_url?: string;
+  total_amount: number;
+  advance_amount: number;
+  dates: BookingDate[];
+}
