@@ -69,25 +69,34 @@ export function CreateVendorModal({ isOpen, onClose, onSubmit, categories, distr
   };
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 overflow-y-auto">
-      <div className="bg-white rounded-2xl w-full max-w-2xl shadow-xl overflow-hidden animate-in fade-in zoom-in-95 duration-200 my-8">
+    <div className="fixed inset-0 z-[100] flex flex-col justify-end sm:items-center sm:justify-center bg-black/60 backdrop-blur-sm sm:p-4">
+      {/* Click outside to close (hidden on mobile, relies on X button or swiping down ideally) */}
+      <div className="absolute inset-0" onClick={onClose} />
+      
+      <div className="bg-white w-full sm:w-full sm:max-w-2xl sm:rounded-2xl rounded-t-3xl shadow-2xl flex flex-col max-h-[92dvh] sm:max-h-[85vh] animate-in slide-in-from-bottom sm:slide-in-from-bottom-0 sm:zoom-in-95 duration-300 relative z-10">
         
-        <div className="flex items-center justify-between p-6 border-b border-zinc-100 bg-zinc-50/50">
+        {/* Mobile pull indicator line */}
+        <div className="w-full flex justify-center pt-3 pb-1 sm:hidden">
+          <div className="w-12 h-1.5 bg-zinc-200 rounded-full" />
+        </div>
+
+        <div className="flex items-center justify-between px-6 py-4 sm:p-6 border-b border-zinc-100 bg-white shrink-0 rounded-t-3xl sm:rounded-t-2xl">
           <div>
-            <h2 className="text-xl font-semibold text-zinc-900">Create New Vendor</h2>
-            <p className="text-sm text-zinc-500 mt-1">
-              They will receive an email containing their login username and dynamically generated password.
+            <h2 className="text-lg sm:text-xl font-semibold text-zinc-900">Create New Vendor</h2>
+            <p className="text-xs sm:text-sm text-zinc-500 mt-0.5 sm:mt-1">
+              They will receive their login details via email.
             </p>
           </div>
           <button 
             onClick={onClose}
-            className="p-2 text-zinc-400 hover:text-zinc-600 hover:bg-zinc-100 rounded-full transition-colors"
+            className="p-2 -mr-2 text-zinc-400 hover:text-zinc-600 hover:bg-zinc-100 rounded-full transition-colors shrink-0"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
-        <form onSubmit={handleSubmit} className="p-6 space-y-6">
+        <form onSubmit={handleSubmit} className="flex flex-col flex-1 overflow-hidden">
+          <div className="p-6 space-y-6 overflow-y-auto flex-1 overscroll-contain">
           
           {error && (
             <div className="bg-red-50 text-red-600 text-sm p-3 rounded-xl border border-red-100">
@@ -190,12 +199,13 @@ export function CreateVendorModal({ isOpen, onClose, onSubmit, categories, distr
               )}
             </div>
           </div>
-
-          <div className="flex items-center justify-end space-x-4 pt-6 border-t border-zinc-100">
-            <Button type="button" variant="ghost" onClick={onClose} disabled={loading}>
+          </div>
+          
+          <div className="flex items-center justify-end space-x-3 p-4 sm:p-6 border-t border-zinc-100 bg-white shrink-0 sm:rounded-b-2xl">
+            <Button type="button" variant="ghost" onClick={onClose} disabled={loading} className="hidden sm:inline-flex">
               Cancel
             </Button>
-            <Button type="submit" disabled={loading} className="bg-zinc-900 text-white min-w-[140px]">
+            <Button type="submit" disabled={loading} className="w-full sm:w-auto bg-zinc-900 hover:bg-black text-white min-w-[140px] h-12 sm:h-10 text-base sm:text-sm rounded-xl sm:rounded-md">
               {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : "Create Vendor"}
             </Button>
           </div>
