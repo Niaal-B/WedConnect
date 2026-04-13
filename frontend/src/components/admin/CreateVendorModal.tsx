@@ -20,8 +20,10 @@ export function CreateVendorModal({ isOpen, onClose, onSubmit, categories, distr
     name: "",
     email: "",
     contact_number: "",
+    alternative_number: "",
     whatsapp_number: "",
     years_of_experience: 0,
+    instagram_url: "",
     category: undefined,
     districts: [],
   });
@@ -138,6 +140,16 @@ export function CreateVendorModal({ isOpen, onClose, onSubmit, categories, distr
             </div>
 
             <div className="space-y-2">
+              <label className="text-sm font-medium text-zinc-700">Alternative Number</label>
+              <Input 
+                type="tel"
+                placeholder="0987654321" 
+                value={formData.alternative_number}
+                onChange={e => setFormData({...formData, alternative_number: e.target.value})}
+              />
+            </div>
+
+            <div className="space-y-2">
               <label className="text-sm font-medium text-zinc-700">WhatsApp Number</label>
               <Input 
                 type="tel"
@@ -147,6 +159,16 @@ export function CreateVendorModal({ isOpen, onClose, onSubmit, categories, distr
               />
             </div>
             
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-zinc-700">Instagram URL</label>
+              <Input 
+                type="url"
+                placeholder="https://instagram.com/user" 
+                value={formData.instagram_url}
+                onChange={e => setFormData({...formData, instagram_url: e.target.value})}
+              />
+            </div>
+
             <div className="space-y-2">
               <label className="text-sm font-medium text-zinc-700">Years of Experience</label>
               <Input 

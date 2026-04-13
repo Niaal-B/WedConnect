@@ -25,8 +25,10 @@ export interface Vendor {
   name: string;
   email: string;
   contact_number: string;
+  alternative_number?: string;
   whatsapp_number: string;
   years_of_experience: number;
+  instagram_url?: string;
   category?: number | string;
   districts?: number[];
   joining_date: string;
@@ -50,8 +52,10 @@ export interface CreateVendorPayload {
   name: string;
   email: string;
   contact_number: string;
+  alternative_number?: string;
   whatsapp_number: string;
   years_of_experience: number;
+  instagram_url?: string;
   category?: number;
   districts?: number[];
 }
