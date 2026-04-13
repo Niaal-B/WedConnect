@@ -21,8 +21,37 @@ export interface RegisterPayload {
 }
 
 export interface Vendor {
-  id: string;
+  id: number;
   name: string;
-  category?: string;
-  // Extend when backend schema is known
+  email: string;
+  contact_number: string;
+  whatsapp_number: string;
+  years_of_experience: number;
+  category?: number | string;
+  districts?: number[];
+  joining_date: string;
+  is_active: boolean;
+}
+
+export interface Category {
+  id: number;
+  name: string;
+  is_active: boolean;
+}
+
+export interface District {
+  id: number;
+  name: string;
+  state: number;
+  state_name: string;
+}
+
+export interface CreateVendorPayload {
+  name: string;
+  email: string;
+  contact_number: string;
+  whatsapp_number: string;
+  years_of_experience: number;
+  category?: number;
+  districts?: number[];
 }
