@@ -9,6 +9,11 @@ export interface LoginCredentials {
   password: string;
 }
 
+export interface AdminLoginCredentials {
+  username: string;
+  password: string;
+}
+
 export interface RegisterPayload {
   email: string;
   password: string;
