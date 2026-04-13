@@ -47,8 +47,8 @@ class VendorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Vendor
         fields = [
-            "id", "name", "email", "contact_number",
-            "whatsapp_number", "years_of_experience",
+            "id", "name", "email", "contact_number", "alternative_number",
+            "whatsapp_number", "years_of_experience", "instagram_url",
             "category", "districts", "joining_date", "is_active"
         ]
         extra_kwargs = {
